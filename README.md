@@ -3,6 +3,8 @@
 A static web app (no backend, no build step) built from the 15 specs in `specs/00-ALL-SPECS.txt`
 (version 4, 19.11.2026). Hebrew, right-to-left, mobile-first, light and dark themes, installable.
 
+**Live demo (installable from Chrome):** https://ghsu2010.github.io/neatsystem-demo/
+
 ## Run it
 
 From this folder:
