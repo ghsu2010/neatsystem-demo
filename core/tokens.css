@@ -1,0 +1,95 @@
+/* Design tokens — 15-design.txt sections 3–5. Components use only semantic tokens. */
+/* Metric-matched fallback so text doesn't jump when Rubik arrives (Design 10.4) */
+@font-face { font-family: "Rubik Fallback"; src: local("Arial"), local("Arial Hebrew"), local("Helvetica"); size-adjust: 103%; ascent-override: 93%; descent-override: 25%; line-gap-override: 0%; }
+:root {
+  /* blue scale */
+  --blue-50:#F3F4FF; --blue-100:#E4E8FF; --blue-200:#CBD3FF; --blue-300:#A8B5FF; --blue-400:#798CFF;
+  --blue-500:#4657FF; --blue-600:#3D2BFF; --blue-700:#2C16C5; --blue-800:#20059D; --blue-900:#150076; --blue-950:#0A004E;
+  /* orange scale */
+  --orange-50:#FFF5ED; --orange-100:#FFE8D7; --orange-200:#FFD2B4; --orange-300:#FFB486; --orange-400:#FF9558;
+  --orange-500:#FF751F; --orange-600:#E65909; --orange-700:#BF4712; --orange-800:#973815;
+  /* neutrals */
+  --n-0:#FFFFFF; --n-25:#F9FAFC; --n-50:#F3F5F9; --n-100:#E9EBF0; --n-200:#DBDEE5; --n-300:#CACED6; --n-400:#9DA1AC;
+  --n-500:#70747F; --n-600:#515560; --n-700:#3B404A; --n-800:#252931; --n-850:#1C1F27; --n-900:#15181F; --n-925:#101319; --n-950:#0B0D13;
+
+  /* semantic (light) */
+  --bg-app:#F9FAFC; --bg-surface:#FFFFFF; --bg-raised:#FFFFFF; --bg-subtle:#F3F5F9;
+  --border:#DBDEE5; --border-strong:#CACED6;
+  --text:#0B0D13; --text-secondary:#515560; --text-muted:#70747F;
+  --brand:#3D2BFF; --on-brand:#FFFFFF; --brand-hover:#2C16C5; --brand-text:#3D2BFF;
+  --brand-subtle:#F3F4FF; --brand-subtle-strong:#E4E8FF; --focus:#798CFF;
+  --reward:#FF751F; --on-reward:#0B0D13; --reward-text:#BF4712; --reward-subtle:#FFF5ED;
+  --success:#05893E; --warning:#F8BD1D; --warning-text:#9D6300; --danger:#D01A34; --info:#0084B8;
+  --danger-tint:#FDE7EA; --success-tint:#DCF5E5;
+  --progress-track:var(--blue-200);
+  --on-tint:#20059D;
+  --hero-from:#F3F4FF; --hero-to:#E4E8FF;
+
+  /* type */
+  --font: "Rubik", "Rubik Fallback", "Heebo", "Arial Hebrew", "Noto Sans Hebrew", system-ui, sans-serif;
+
+  /* radius */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-full:999px;
+
+  /* depth */
+  --shadow-xs:0 1px 2px rgb(11 13 19 / .05);
+  --shadow-sm:0 1px 3px rgb(11 13 19 / .10), 0 1px 2px -1px rgb(11 13 19 / .10);
+  --shadow-lg:0 10px 15px -3px rgb(11 13 19 / .10), 0 4px 6px -4px rgb(11 13 19 / .10);
+  --shadow-xl:0 20px 25px -5px rgb(11 13 19 / .10), 0 8px 10px -6px rgb(11 13 19 / .10);
+
+  /* motion */
+  --dur-fast:100ms; --dur-base:200ms; --dur-slow:300ms; --dur-celebrate:800ms;
+  --ease-out:cubic-bezier(0.2, 0, 0, 1); --ease-in:cubic-bezier(0.3, 0, 1, 1);
+
+  /* medal & streak flames (Design 11.3) */
+  --gold:#D69E00; --silver:#9AA3AF; --bronze:#B26B32;
+
+  color-scheme: light;
+}
+
+/* dark: follows the device unless the user chose light; or forced dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-app:#0B0D13; --bg-surface:#15181F; --bg-raised:#1C1F27; --bg-subtle:#101319;
+    --border:#252931; --border-strong:#3B404A;
+    --text:#E6E8F0; --text-secondary:#9DA1AC; --text-muted:#9DA1AC;
+    --brand:#4657FF; --brand-hover:#5A6AFF; --brand-text:#A8B5FF;
+    --brand-subtle:#16163A; --brand-subtle-strong:#1D1C55;
+    --reward-text:#FF9558; --reward-subtle:#46180A;
+    --success:#5FD37F; --warning:#FAC547; --warning-text:#FAC547; --danger:#FD7277; --info:#61C3F9;
+    --danger-tint:#3D1219; --success-tint:#0E2E1B;
+    --progress-track:var(--brand-subtle-strong);
+    --on-tint:#A8B5FF;
+    --hero-from:#16163A; --hero-to:#1D1C55;
+    --shadow-xs:none; --shadow-sm:none; --shadow-lg:none; --shadow-xl:none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg-app:#0B0D13; --bg-surface:#15181F; --bg-raised:#1C1F27; --bg-subtle:#101319;
+  --border:#252931; --border-strong:#3B404A;
+  --text:#E6E8F0; --text-secondary:#9DA1AC; --text-muted:#9DA1AC;
+  --brand:#4657FF; --brand-hover:#5A6AFF; --brand-text:#A8B5FF;
+  --brand-subtle:#16163A; --brand-subtle-strong:#1D1C55;
+  --reward-text:#FF9558; --reward-subtle:#46180A;
+  --success:#5FD37F; --warning:#FAC547; --warning-text:#FAC547; --danger:#FD7277; --info:#61C3F9;
+  --danger-tint:#3D1219; --success-tint:#0E2E1B;
+  --progress-track:var(--brand-subtle-strong);
+  --on-tint:#A8B5FF;
+  --hero-from:#16163A; --hero-to:#1D1C55;
+  --shadow-xs:none; --shadow-sm:none; --shadow-lg:none; --shadow-xl:none;
+  color-scheme: dark;
+}
+
+/* Tinted things (pills, badges, tags) carry 4 vars: --tbl --tfl (light) --tbd --tfd (dark) */
+.tinted { background: var(--tbl); color: var(--tfl); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tinted { background: var(--tbd); color: var(--tfd); } }
+:root[data-theme="dark"] .tinted { background: var(--tbd); color: var(--tfd); }
+/* Group/name colours with contrast-fitted text */
+.gname { color: var(--gl); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gname { color: var(--gd); } }
+:root[data-theme="dark"] .gname { color: var(--gd); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-property: opacity !important; }
+}
